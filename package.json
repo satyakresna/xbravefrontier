@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "omniunits:artworks": "node src/omniunits/artworks.js",
-    "omniunits:thumbnails": "node src/omniunits/thumbnails.js",
+    "omniunits:artworks": "node backend/services/omniunits/artworks.js",
+    "omniunits:thumbnails": "node backend/services/omniunits/thumbnails.js",
     "raw:omniunits": "node backend/services/omniunits/raw.js",
     "raw:dbbs": "node backend/services/dbbs/raw.js",
     "watch:css": "postcss frontend/css/style.css -o frontend/css/index.css --watch",
