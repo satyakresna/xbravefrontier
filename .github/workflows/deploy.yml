@@ -17,8 +17,6 @@ jobs:
       run: npm run build
     - name: Deploy to production
       uses: amondnet/vercel-action@v20
-      id: vercel-action-production
-      if: github.event_name == 'push'
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
