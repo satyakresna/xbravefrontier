@@ -1,0 +1,27 @@
+name: Deploy Brave Frontier on Github Actions
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '>=12.14.1'
+    - name: Install dependecies
+      run: npm ci
+    - name: Build site
+      run: npm run build
+    - name: Deploy to production
+      uses: amondnet/vercel-action@v19
+      id: vercel-action-production
+      if: github.event_name == 'push'
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-org-id: ${{ secrets.ORG_ID }}
+        vercel-project-id: ${{ secrets.PROJECT_ID }}
+        vercel-args: '--prod'
