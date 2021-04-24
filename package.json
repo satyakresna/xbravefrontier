@@ -1,0 +1,49 @@
+{
+  "name": "xbravefrontier",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "omniunits:artworks": "node src/omniunits/artworks.js",
+    "omniunits:thumbnails": "node src/omniunits/thumbnails.js",
+    "raw:omniunits": "node backend/services/omniunits/raw.js",
+    "raw:dbbs": "node backend/services/dbbs/raw.js",
+    "watch:css": "postcss frontend/css/style.css -o frontend/css/index.css --watch",
+    "watch:js": "cd frontend && rollup -c -w",
+    "prod:css": "postcss frontend/css/style.css -o frontend/css/index.css",
+    "prod:js": "cd frontend && rollup -c",
+    "build": "NODE_ENV=production npm run prod:css && npm run prod:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satyakresna/xbravefrontier.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satyakresna/xbravefrontier/issues"
+  },
+  "homepage": "https://github.com/satyakresna/xbravefrontier#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "autoprefixer": "^10.2.5",
+    "axios": "^0.21.1",
+    "chalk": "^2.4.2",
+    "cloudinary": "^1.25.1",
+    "cssnano": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "jsdom": "^16.5.3",
+    "notyf": "^3.9.0",
+    "page": "^1.11.6",
+    "postcss": "^8.2.12",
+    "postcss-cli": "^8.3.1",
+    "rollup": "^2.45.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "tailwindcss": "^2.1.2"
+  },
+  "engines": {
+    "node": ">=12.14.1"
+  }
+}
