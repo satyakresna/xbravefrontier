@@ -16,7 +16,7 @@ jobs:
     - name: Build site
       run: npm run build
     - name: Deploy to production
-      uses: amondnet/vercel-action@v19
+      uses: amondnet/vercel-action@v20
       id: vercel-action-production
       if: github.event_name == 'push'
       with:
