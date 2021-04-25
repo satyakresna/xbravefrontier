@@ -40,6 +40,18 @@
       },
       { "handle": "filesystem" },
       {
+        "src": "/omniunits/assets/(.*)",
+        "dest": "frontend/assets/$1"
+      },
+      {
+        "src": "/omniunits/css/(.*)",
+        "dest": "frontend/css/$1"
+      },
+      {
+        "src": "/omniunits/(.*).(js)",
+        "dest": "frontend/$1.$2"
+      },
+      {
         "src": "/assets/(.*)",
         "dest": "frontend/assets/$1"
       },
