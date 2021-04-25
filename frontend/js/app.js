@@ -12,5 +12,3 @@ page('/dbbs', Dbbs);
 page('*', NotFound);
 // Call it!
 page();
-
-window.prerenderReady = true;
