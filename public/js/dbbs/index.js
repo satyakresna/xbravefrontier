@@ -2,6 +2,7 @@ import Skeleton from "./components/Skeleton.js";
 import { SearchForm, Search } from "./components/Search.js";
 import setActiveMenu from "../utils/setActiveMenu.js";
 import trackUrl from "../utils/trackUrl.js";
+import setOgMeta from "../utils/setOgMeta.js";
 import { requestDbbs } from "../utils/request.js";
 import { getDbbKeywords } from "../utils/keywords.js";
 
@@ -10,7 +11,12 @@ let searchDbbKeywordsEl;
 export default function (ctx) {
     trackUrl(ctx);
     setActiveMenu(ctx.path);
-    document.title = ctx.title = 'Brave Frontier Wiki';
+    document.title = ctx.title = 'Brave Frontier Wiki (Unofficial) | DBB';
+    setOgMeta({
+        title: 'Brave Frontier Wiki (Unofficial) | DBB',
+        description: `List of Dual Brave Burst in Brave Frontier wiki (Unofficial)`,
+        url: `${window.location.host}${ctx.path}`
+    });
     document.querySelector('main').textContent = '';
     document.querySelector('main').appendChild(SearchForm());
     document.querySelector('main').appendChild(Skeleton());
