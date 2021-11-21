@@ -50,7 +50,7 @@ module.exports = async (units, additional = false) => {
                     }
                 }
 
-                const unitArtwork = document.querySelector('div.tabbertab div center a img').getAttribute('src');
+                const unitArtwork = document.querySelector('div[style="text-align:center; padding-top:21px; height:170px; vertical-align:middle; display:table-cell; width:210px;"] > center > a > img').getAttribute('src');
                 // unit.artwork = unitArtwork.replace('/scale-to-width-down/330', '');
                 unit.artwork = unitArtwork;
             });
