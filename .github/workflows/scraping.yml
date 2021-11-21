@@ -1,8 +1,5 @@
 name: Scraping Brave Frontier on Github Actions
 on:
-  schedule:
-    # Run at 23:59 once every three days
-    - cron: '59 23 * * 3'
   workflow_dispatch:
 
 jobs:
