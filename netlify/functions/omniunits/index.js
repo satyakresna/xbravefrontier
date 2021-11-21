@@ -2,12 +2,37 @@ const fsPromises = require('fs').promises;
 const { join } = require('path');
 const file = join(__dirname, '..', '..', '..', 'data', 'omniunits', 'raw.json');
 
-module.exports = async (req, res) => {
-    let name = req.query.name;
-    let element = req.query.element;
-    let keywords = req.query.keywords;
+exports.handler = async (event, context) => {
     const text = await fsPromises.readFile(file, 'utf8');
     const omniUnits = JSON.parse(text);
+
+    const path = event.path.replace(/\/\api\/v1\/[^/]*\//, '');
+    const pathParts = (path) ? path.split('/') : [];
+
+    if (pathParts[0]) {
+        let name = pathParts[0];
+        let selectedUnit = {};
+        for (let omniUnit of omniUnits) {
+            if (omniUnit.name === name.split('_').join(' ').trim()) {
+                selectedUnit = omniUnit;
+            }
+        }
+
+        const statusCode = (selectedUnit.hasOwnProperty('name')) ? 200 : 404;
+        const result = (selectedUnit.hasOwnProperty('name')) 
+            ? selectedUnit 
+            : { message : `Unit ${name} not found` };
+
+        return {
+            statusCode: statusCode,
+            body: JSON.stringify(result)
+        };
+    }
+
+    let name = event.queryStringParameters.name;
+    let element = event.queryStringParameters.element;
+    let keywords = event.queryStringParameters.keywords;
+    
     let result = omniUnits;
 
     if (name && element && keywords) {
@@ -55,7 +80,10 @@ module.exports = async (req, res) => {
         delete omniUnit.enhancements;
     }
 
-    res.status(200).send(result);
+    return {
+        statusCode: 200,
+        body: JSON.stringify(result)
+    };
 }
 
 function lowerCase(string) {
