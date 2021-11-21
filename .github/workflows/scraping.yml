@@ -12,7 +12,7 @@ jobs:
       with:
         node-version: '>=12.14.1'
     - name: Install dependecies
-      run: npm ci
+      run: cd services && npm ci
     - name: Store scraping omni units into raw file
       run: cd services && npm run raw:omniunits
     - name: Store scrapping dbbs into raw file
