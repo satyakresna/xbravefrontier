@@ -73,7 +73,7 @@ Here's is example:
 
 ## Technology
 
-TBA
+Build by Netlify.
 
 ### How to run?
 
