@@ -3,13 +3,19 @@ import Skeleton from "./components/Skeleton.js";
 import { getOmniUnitKeywords } from "../utils/keywords.js";
 import setActiveMenu from "../utils/setActiveMenu.js";
 import trackUrl from "../utils/trackUrl.js";
+import setOgMeta from "../utils/setOgMeta.js";
 import { requestOmniUnits } from "../utils/request.js";
 
 let searchOmniUnitKeywordsEl;
 export default function (ctx) {
   trackUrl(ctx);
   setActiveMenu(ctx.path);
-  document.title = ctx.title = 'Brave Frontier Wiki';
+  document.title = ctx.title = 'Brave Frontier Wiki (Unofficial) | Omni Units';
+  setOgMeta({
+    title: 'Brave Frontier Wiki (Unofficial) | Omni Units',
+    description: `List of Omni Units in Brave Frontier wiki (Unofficial)`,
+    url: `${window.location.host}${ctx.path}`
+  });
   document.querySelector('main').textContent = '';
   document.querySelector('main').appendChild(SearchForm());
   document.querySelector('main').appendChild(Skeleton());
