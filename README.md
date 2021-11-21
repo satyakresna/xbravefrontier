@@ -73,14 +73,8 @@ Here's is example:
 
 ## Technology
 
-This project design with monorepo. So frontend (client side based Single Page Application) and backend (API) together in one repo. Thanks to [Carlos Roso for his article: How to deploy a monorepo in Vercel](https://carlosroso.com/how-to-deploy-a-monorepo-in-vercel/).
+TBA
 
 ### How to run?
 
-> This project relies on [Vercel CLI](https://vercel.com/cli) so please make sure you install Vercel CLI and know how it works!
-
-**Note: this project requires Node JS version at least 12.14.1 or more.**
-- Clone this project
-- Install dependencies with `npm install`
-- Run `vercel dev`
-- Run `npm watch:css` and `npm watch:js`
+TBA
