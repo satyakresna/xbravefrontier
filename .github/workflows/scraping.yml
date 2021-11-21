@@ -12,13 +12,13 @@ jobs:
       with:
         node-version: '>=12.14.1'
     - name: Install dependecies
-      run: npm ci
+      run: cd services && npm ci
     - name: Store scraping omni units into raw file
-      run: npm run raw:omniunits
+      run: cd services && npm run raw:omniunits
     - name: Store scrapping dbbs into raw file
-      run: npm run raw:dbbs
+      run: cd services && npm run raw:dbbs
     - name: Upload omniunits thumbnails to Cloudinary
-      run: npm run omniunits:thumbnails
+      run: cd services && npm run omniunits:thumbnails
       env:
         CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
         CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -39,3 +39,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        ref: ${{ github.ref }}

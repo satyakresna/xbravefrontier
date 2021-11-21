@@ -3,9 +3,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import { terser } from "rollup-plugin-terser";
 
 export default {
-    input: 'js/app.js',
+    input: 'public/js/app.js',
     output: {
-        file: 'bundle.js',
+        file: 'public/bundle.js',
         format: 'iife',
         globals: {
             page: 'page',
