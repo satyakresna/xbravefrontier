@@ -7,7 +7,7 @@
     "watch:css": "postcss public/css/style.css -o public/css/index.css --watch",
     "watch:js": "rollup -c -w",
     "prod:css": "postcss public/css/style.css -o public/css/index.css",
-    "prod:js": "rollup -c && cp bundle.js public && cp bundle.js.map public",
+    "prod:js": "rollup -c",
     "build": "NODE_ENV=production npm run prod:css && npm run prod:js"
   },
   "repository": {
