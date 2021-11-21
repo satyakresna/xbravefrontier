@@ -1,6 +1,6 @@
 const fsPromises = require('fs').promises;
 const { join } = require('path');
-const file = join(__dirname, '..', '..', '..', 'data', 'omniunits', 'raw.json');
+const file = join(__dirname, '..', '..', 'data', 'omniunits', 'raw.json');
 
 exports.handler = async (event, context) => {
     const text = await fsPromises.readFile(file, 'utf8');

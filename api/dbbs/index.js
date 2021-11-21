@@ -1,6 +1,6 @@
 const fsPromises = require('fs').promises;
 const { join } = require('path');
-const file = join(__dirname, '..', '..', '..', 'data', 'dbbs', 'raw.json');
+const file = join(__dirname, '..', '..', 'data', 'dbbs', 'raw.json');
 
 exports.handler = async (event, callback) => {
     let esname = event.queryStringParameters.esname;
