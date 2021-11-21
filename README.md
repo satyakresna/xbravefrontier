@@ -74,6 +74,8 @@ Here's is example:
 
 This project design with monorepo powered by Netlify. Frontend based on Single Page Application stored in `public` folder and backend for API stored in `api` folder.
 
+For scraper service (to get data to build API) it separate from Netlify and it powered by GitHub Actions. The scraper service located in `services` folder and GitHub Workflow located in `.github/workflows` root directory.
+
 ### How to run?
 
 > This project require [Netlify CLI](https://cli.netlify.com/netlify-dev/) so please make sure you install it!
