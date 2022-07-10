@@ -20,7 +20,6 @@ Keywords mean special abilities that belongs to omni unit. Those get from LS, ES
 - "activates BB/SBB/UBB twice",
 - "DoT mitigation", 
 - "negate all status ailments",
-- "negates all status ailments",
 - "negates all status ailments for all allies",
 - "Stealth", 
 - "normal attacks may hit all foes",
