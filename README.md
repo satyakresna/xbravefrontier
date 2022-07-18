@@ -79,7 +79,7 @@ For scraper service (to get data to build API) it separate from Netlify and it p
 
 > This project require [Netlify CLI](https://cli.netlify.com/netlify-dev/) so please make sure you install it!
 
-**Note: this project requires Node JS version at least 12.14.1 or more.**
+**Note: this project requires Node JS version at least 16 or more.**
 - Clone this project.
 - Install dependencies with `npm install`.
 - Run `netlify dev`.
