@@ -1,5 +1,4 @@
 import { requestOmniUnit } from "../utils/request.js";
-import trackUrl from "../utils/trackUrl.js";
 import setOgMeta from "../utils/setOgMeta.js";
 
 export function loadOmniUnit(ctx, next) {
@@ -27,7 +26,6 @@ export function loadOmniUnit(ctx, next) {
 
 export function showOmniUnit(ctx) {
   window.previousOmniUnitsPage = window.scrollY;
-  trackUrl(ctx);
   document.title = ctx.title = `${ctx.state.omniunit.name} - Brave Frontier Wiki`;
   setOgMeta({
     title: ctx.state.omniunit.name,

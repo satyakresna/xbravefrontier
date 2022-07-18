@@ -1,7 +1,6 @@
 import Skeleton from "./components/Skeleton.js";
 import { SearchForm, Search } from "./components/Search.js";
 import setActiveMenu from "../utils/setActiveMenu.js";
-import trackUrl from "../utils/trackUrl.js";
 import setOgMeta from "../utils/setOgMeta.js";
 import { requestDbbs } from "../utils/request.js";
 import { getDbbKeywords } from "../utils/keywords.js";
@@ -9,7 +8,6 @@ import { getDbbKeywords } from "../utils/keywords.js";
 let searchDbbKeywordsEl;
 
 export default function (ctx) {
-    trackUrl(ctx);
     setActiveMenu(ctx.path);
     document.title = ctx.title = 'Brave Frontier Wiki (Unofficial) | DBB';
     setOgMeta({

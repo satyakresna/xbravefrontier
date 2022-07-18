@@ -1,4 +1,3 @@
-import trackUrl from "../utils/trackUrl.js";
 import setOgMeta from "../utils/setOgMeta.js";
 import setActiveMenu from "../utils/setActiveMenu.js";
 
@@ -7,7 +6,6 @@ export default function (ctx) {
     document.body.classList.remove('bg-gray-300');
     document.body.classList.add('bg-white');
   }
-  trackUrl(ctx);
   setActiveMenu(ctx.path);
   document.title = ctx.title = `Brave Frontier Wiki (Unofficial)`;
   setOgMeta({

@@ -2,13 +2,11 @@ import { SearchForm, Search } from "./components/Search.js";
 import Skeleton from "./components/Skeleton.js";
 import { getOmniUnitKeywords } from "../utils/keywords.js";
 import setActiveMenu from "../utils/setActiveMenu.js";
-import trackUrl from "../utils/trackUrl.js";
 import setOgMeta from "../utils/setOgMeta.js";
 import { requestOmniUnits } from "../utils/request.js";
 
 let searchOmniUnitKeywordsEl;
 export default function (ctx) {
-  trackUrl(ctx);
   setActiveMenu(ctx.path);
   document.title = ctx.title = 'Brave Frontier Wiki (Unofficial) | Omni Units';
   setOgMeta({
