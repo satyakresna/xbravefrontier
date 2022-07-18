@@ -38,13 +38,13 @@ export function showOmniUnit(ctx) {
       return unit.name === ctx.state.omniunit.name;
     });
   }
-  import("./components/Profile.js").then(({ default: OmniUnitProfile }) => {
+  import("../components/omniunit/Profile.js").then(({ default: OmniUnitProfile }) => {
     document.querySelector('main').textContent = '';
     document.querySelector('main').appendChild(OmniUnitProfile(ctx.state.omniunit));
     document.getElementById('shareBtn').addEventListener('click', async (e) => {
       e.preventDefault();
       try {
-        const module = await import("./components/Share.js");
+        const module = await import("../components/omniunit/Share.js");
         module.default(ctx.state.omniunit);
       } catch (error) {
         console.log(error);
