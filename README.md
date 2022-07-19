@@ -82,7 +82,7 @@ For scraper service (to get data to build API) it separate from Vercel and it po
 
 > This project require [Vercel CLI](https://vercel.com/cli) so so please make sure you install it!
 
-**Note: this project requires Node JS version at least 12.14.1 or more.**
+**Note: this project requires Node JS version at least 16 or more.**
 - Clone this project
 - Install dependencies with `npm install`
 - Run `vercel dev`
