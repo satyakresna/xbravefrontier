@@ -11,41 +11,6 @@ Brave Frontier Wiki Unofficial for Omniunits and Dual Brave Burst (DBB)s. The da
 - [x] Get list of Dual Brave Burst (DBB) of omni units.
 - [x] Filter DBBs based on name, elemental synergy and **keywords**.
 
-## Keywords
-
-Keywords mean special abilities that belongs to omni unit. Those get from LS, ES, BB, SBB, UBB and Enhancements. So far list of keywords that have been collected are:
-
-- "extra action", 
-- "evasion", 
-- "activates BB/SBB/UBB twice",
-- "DoT mitigation", 
-- "negate all status ailments",
-- "negates all status ailments for all allies",
-- "Stealth", 
-- "normal attacks may hit all foes",
-- "raises normal hit amount", 
-- "status ailment removal",
-- "def ignoring effect",
-- "reduces BB gauge required",
-- "reduction to BB activation cost",
-- "fills OD gauge",
-- "boosts OD gauge fill rate",
-- "status ailments infliction",
-- "resistance against KO attack",
-- "resistance against 1 KO attack",
-- "resistance against 2 KO attacks"
-- "Adds Doom effect purge from self to BB/UBB"
-- "purges Doom"
-- "raises allies from KO",
-- "purges LS and ES Lock"
-- "DoT mitigation"
-- "boost to Summoner Avatar EXP gained"
-- "boost to Summoner EXP gained"
-- "boost to EXP gained"
-- "removes all status ailments"
-- "boosts ABP and CBP gain",
-- "elemental damage reduction"
-
 ## API Usage
 
 ### List of Omni Units
@@ -57,7 +22,6 @@ Example:
 1. By `name` https://bravefrontier.netlify.app/api/v1/omniunits?name=war
 2. By `element` https://bravefrontier.netlify.app/api/v1/omniunits?element=fire
 3. By `name` and `element` https://bravefrontier.netlify.app/api/v1/omniunits?name=sun&element=fire
-
 
 ## Detail of Omni Unit
 
