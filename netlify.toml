@@ -2,9 +2,6 @@
     command = "npm run build"
     functions = "api"
     publish = "public"
-
-[functions]
-    included_files = ["data/**"]
     
 [[redirects]]
     from = "/api/v1/*"
