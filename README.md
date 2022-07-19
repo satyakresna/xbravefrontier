@@ -86,4 +86,4 @@ For scraper service (to get data to build API) it separate from Vercel and it po
 - Clone this project
 - Install dependencies with `npm install`
 - Run `vercel dev`
-- Run `npm watch:css` and `npm watch:js`
+- Run `npm run watch:css` and `npm run watch:js`

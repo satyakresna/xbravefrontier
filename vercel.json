@@ -48,8 +48,8 @@
         "dest": "public/css/$1"
       },
       {
-        "src": "/(.*).(js)",
-        "dest": "public/$1.$2"
+        "src": "/dist/(.*)",
+        "dest": "public/dist/$1"
       },
       {
         "src": "/(.*)",
