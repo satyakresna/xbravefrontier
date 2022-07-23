@@ -1,13 +1,16 @@
-const fsPromises = require('fs').promises;
-const { join } = require('path');
-const file = join(__dirname, '..', '..', '..', 'data', 'dbbs', 'raw.json');
+const fetch = require('node-fetch');
+
+const ENDPOINT = 'https://raw.githubusercontent.com/satyakresna/xbravefrontier/main/data/dbbs/raw.json';
 
 module.exports = async (req, res) => {
     let esname = req.query.esname;
     let unitname = req.query.unitname;
-    const text = await fsPromises.readFile(file, 'utf8');
-    const dbbs = JSON.parse(text);
-    let result = dbbs;
+    
+    let response = await fetch(ENDPOINT);
+    let body = await response.text();
+    const dbbs = JSON.parse(body);
+    
+    let result;
 
     if (esname && unitname) {
         result = dbbs.filter(dbb => {
@@ -35,6 +38,8 @@ module.exports = async (req, res) => {
                 return dbb;
             }
         });
+    } else {
+        result = dbbs;
     }
 
     res.status(200).send(result);

@@ -9,7 +9,15 @@
         "use": "@vercel/node"
       },
       {
-        "src": "public/**",
+        "src": "index.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "/assets/**",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "/dist/**",
         "use": "@vercel/static"
       }
     ],
@@ -32,7 +40,7 @@
       },
       {
         "src": "/api/v1/omniunits/(?<name>.*)",
-        "dest": "api/v1/omniunits/[name].js?name=$name",
+        "dest": "api/v1/omniunits/[name].js",
         "headers": {
             "Cache-Control": "public, s-maxage=60, stale-while-revalidate",
             "Access-Control-Allow-Origin": "*"
@@ -41,19 +49,15 @@
       { "handle": "filesystem" },
       {
         "src": "/assets/(.*)",
-        "dest": "public/assets/$1"
-      },
-      {
-        "src": "/css/(.*)",
-        "dest": "public/css/$1"
+        "dest": "/assets/$1"
       },
       {
         "src": "/dist/(.*)",
-        "dest": "public/dist/$1"
+        "dest": "/dist/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "public/index.html"
+        "dest": "/index.html"
       }
     ]
 }

@@ -1,15 +1,17 @@
-const fsPromises = require('fs').promises;
-const { join } = require('path');
-const file = join(__dirname, '..', '..', '..', 'data', 'omniunits', 'raw.json');
+const fetch = require('node-fetch');
+
+const ENDPOINT = 'https://raw.githubusercontent.com/satyakresna/xbravefrontier/main/data/omniunits/raw.json';
 
 module.exports = async (req, res) => {
     let name = req.query.name;
     let element = req.query.element;
     let keywords = req.query.keywords;
-    const text = await fsPromises.readFile(file, 'utf8');
-    const omniUnits = JSON.parse(text);
-    let result = omniUnits;
+    
+    let response = await fetch(ENDPOINT);
+    let body = await response.text();
+    const omniUnits = JSON.parse(body);
 
+    let result;
     if (name && element && keywords) {
         result = omniUnits.filter(unit => {
             let unitName = unit.name.toLowerCase();
@@ -46,6 +48,8 @@ module.exports = async (req, res) => {
                 }
             }
         })
+    } else {
+        result = omniUnits;
     }
 
     for (const omniUnit of result) {
