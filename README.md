@@ -1,6 +1,7 @@
 # Brave Frontier Wiki Unofficial
 
-Brave Frontier Wiki Unofficial for Omniunits and Dual Brave Burst (DBB)s. The data comes from The data comes from [Brave Frontier Global Fandom website](https://bravefrontierglobal.fandom.com/wiki/Brave_Frontier_Wiki).
+Brave Frontier Wiki Unofficial for Omniunits and Dual Brave Burst (DBB)s hosted in Netlify. 
+Site URL: https://bravefrontier.netlify.app.
 
 ## Specifications
 
