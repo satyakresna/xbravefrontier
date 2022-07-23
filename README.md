@@ -47,4 +47,4 @@ For scraper service (to get data to build API) it separate from Netlify and it p
 - Clone this project.
 - Install dependencies with `npm install`.
 - Run `netlify dev`.
-- Run `npm watch:css` and `npm watch:js` in another tab terminal.
+- Run `npm run watch:css` and `npm run watch:js` in another tab terminal.
