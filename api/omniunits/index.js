@@ -1,16 +1,35 @@
-const fsPromises = require('fs').promises;
-const { join } = require('path');
-const file = join(__dirname, '..', '..', 'data', 'omniunits', 'raw.json');
+const fetch = require('node-fetch');
+
+const ENDPOINT = 'https://raw.githubusercontent.com/satyakresna/xbravefrontier/main/data/omniunits/raw.json';
+
+const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+    'Content-Type': 'application/json',
+};
 
 exports.handler = async (event, context) => {
-    const text = await fsPromises.readFile(file, 'utf8');
-    const omniUnits = JSON.parse(text);
+    let response, body;
 
-    const path = event.path.replace(/\/\api\/v1\/[^/]*\//, '');
-    const pathParts = (path) ? path.split('/') : [];
+    try {
+        response = await fetch(ENDPOINT);
+        body = await response.text();
+    } catch (err) {
+        return {
+            statusCode: err.statusCode || 500,
+            headers,
+            body: JSON.stringify({
+                error: err.message
+            })
+        }
+    }
 
-    if (pathParts[0]) {
-        let name = pathParts[0];
+    const omniUnits = JSON.parse(body);
+
+    const pathParts = (event.path) ? event.path.split('/') : [];
+    if (pathParts[4]) {
+        let name = pathParts[4];
         let selectedUnit = {};
         for (let omniUnit of omniUnits) {
             if (omniUnit.name === name.split('_').join(' ').trim()) {
@@ -25,6 +44,7 @@ exports.handler = async (event, context) => {
 
         return {
             statusCode: statusCode,
+            headers,
             body: JSON.stringify(result)
         };
     }
@@ -33,8 +53,7 @@ exports.handler = async (event, context) => {
     let element = event.queryStringParameters.element;
     let keywords = event.queryStringParameters.keywords;
     
-    let result = omniUnits;
-
+    let result;
     if (name && element && keywords) {
         result = omniUnits.filter(unit => {
             let unitName = unit.name.toLowerCase();
@@ -71,6 +90,8 @@ exports.handler = async (event, context) => {
                 }
             }
         })
+    } else {
+        result = omniUnits;
     }
 
     for (const omniUnit of result) {
@@ -82,11 +103,7 @@ exports.handler = async (event, context) => {
 
     return {
         statusCode: 200,
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-        },
+        headers,
         body: JSON.stringify(result)
     };
 }
