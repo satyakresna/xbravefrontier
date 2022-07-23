@@ -1,8 +1,8 @@
 import page from "page";
-import Home from "./home/index.js";
-import OmniUnits from "./omniunits/index.js";
-import { loadOmniUnit, showOmniUnit } from "./omniunit/index.js";
-import Dbbs from "./dbbs/index.js";
+import Home from "./routes/Home.js";
+import OmniUnits from "./routes/OmniUnits.js";
+import { loadOmniUnit, showOmniUnit } from "./routes/OmniUnit.js";
+import Dbbs from "./routes/Dbbs.js";
 import NotFound from "./notfound.js";
 
 page('/', Home);

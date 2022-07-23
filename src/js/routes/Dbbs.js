@@ -1,5 +1,5 @@
-import Skeleton from "./components/Skeleton.js";
-import { SearchForm, Search } from "./components/Search.js";
+import Skeleton from "../components/dbbs/Skeleton.js";
+import { SearchForm, Search } from "../components/dbbs/Search.js";
 import setActiveMenu from "../utils/setActiveMenu.js";
 import trackUrl from "../utils/trackUrl.js";
 import setOgMeta from "../utils/setOgMeta.js";
@@ -34,7 +34,7 @@ export default function (ctx) {
         ctx.state.dbbs = data;
         ctx.save();
         filteredDbbs = filterDbbs(ctx);
-        import("./components/Content.js").then(module => {
+        import("../components/dbbs/Content.js").then(module => {
             module.default(filteredDbbs);
             Search();
         });

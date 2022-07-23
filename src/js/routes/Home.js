@@ -15,7 +15,7 @@ export default function (ctx) {
     description: `Brave Frontier wiki (Unofficial) for omni units and dual brave burst`,
     url: `${window.location.host}${ctx.path}`
   });
-  import('./components/Home.js').then(module => {
+  import('../components/home/Home.js').then(module => {
     document.querySelector('main').textContent = '';
     document.querySelector('main').appendChild(module.default());
   });
